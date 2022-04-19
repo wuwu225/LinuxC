@@ -489,7 +489,7 @@ int main() {
 ```
 
 > scanf 在使用 `%s` 的时候要特别小心
-
+注意输出字节长度
 ``` c++
 #include <stdio.h>
 #include <stdlib.h>
@@ -511,8 +511,8 @@ int main() {
   int d = 0;
   
   while(1) {
-    ret = scanf("%d, d);
-    if (ret == -1) {
+    ret = scanf("%d, d);        //必须输入无符号十进制数字
+    if (ret == -1) {            //对返回值进行检测
       perror("Error");
       break;
     }
@@ -530,9 +530,9 @@ int main() {
   char c = 0;
   
   scanf("%d", &i);
-  scanf("%*c%c", &c);
+  scanf("%*c%c", &c);       //接收字符，scanf通过enter结束输入，但是第二个scanf接收了 enter  此时需要%*c覆盖一个字符
   // 或者
-  //getchar();
+  //getchar();      
   //scanf("%c", &c);
   printf("i = %d, c = %c", i, c);
 }
