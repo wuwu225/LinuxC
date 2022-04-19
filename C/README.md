@@ -170,6 +170,7 @@ float f;
 doubel d;
 char ch;
 
+默认向高精度转换
 ch + i -> i
 f -d -> d
 
