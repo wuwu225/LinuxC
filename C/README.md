@@ -194,23 +194,31 @@ int main() {
 
 #### 浮点型的失真问题
 
-``` c++
-int func(float f) {
-  if (f < 0) {
+``` c
+int func(float f) 
+{
+  if (f < 0) 
+  {
     return -1;
-  } else if (fabs(f-0) <= 1e-6) {
+  } 
+  else if (fabs(f-0) <= 1e-6) 
+  {
     return 0;
-  } else {
+  } 
+  else 
+  {
   return 1;
   }
 }
+float严格计算结果，不会进行约等于<br>
+因此需要对尾数进行判断：fabs(f-0) <= 1e-6
 ```
 
 ####  char
 
 **在iso c中 `char`有无符号是未定义行为**
 
-#### 0
+#### 不同形式的0值
 
 ``` c++
 0(整形) '0'(字符常量) "0"(字符串常量) '\0'(字符常量)
@@ -226,7 +234,7 @@ int func(float f) {
 int main() {
   unsigned int a;
   a = 1 << 31;
-  printf("%d", a);
+  printf("`%d`", a);
 }
 
 ```
@@ -240,7 +248,7 @@ int main() {
 int main() {
   unsigned int a;
   a = 1 << 31;
-  printf("%ud", a);
+  printf("`%ud`", a);
 }
 
 ```
