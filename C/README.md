@@ -1205,12 +1205,12 @@ struct A {
 int main() {
   // TYPE NAME = VALUE;
   struct A a = {123, 'A', 2.22}; // 初始化
-  struct A a_ = { .c = 'A', .f = 2.22}; // 部分初始化
+  struct A *a = { .c = 'A', .f = 2.22}; // 部分初始化
   struct A *ap = { .c = 'A', .f = 2.22}; // 部分初始化
   
   printf("%d %c %.2f\n",a.i, a.c, a.f); // 成员引用
   // 123 A 2.22
-  printf("%d %c %.2f\n",a_.i, a_.c, a_.f); // 成员引用
+  printf("%d %c %.2f\n",(*a).i, (*a).c, (*a).f); // 成员引用
   // 0 A 2.22
   printf("%d %c %.2f\n",ap->i, ap->c, ap->f); // 成员引用
   // 0 A 2.22
@@ -1220,7 +1220,8 @@ int main() {
 ### 占用内存空间大小
 `addr % sizeof(type)` 不能整除的话就要继续往下偏移
 
-``` c++
+``` c
+
 #include <stdio.h>
 #include <stdlib.h>
 
