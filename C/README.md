@@ -1193,7 +1193,7 @@ struct student_st{
 ### 定义变量 初始化以及成员引用
 - 结构体 .
 - 结构体指针 ->
-```
+```c
 #include<iostream>
 #include<string>
 
