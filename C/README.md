@@ -1193,6 +1193,31 @@ struct student_st{
 ### 定义变量 初始化以及成员引用
 - 结构体 .
 - 结构体指针 ->
+```
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+struct Student{
+	string name;
+	int age;
+	int score;    //分数 
+}; 
+
+
+int main()
+{
+	struct Student stu = {"小明",18,90};
+	struct Student *p = &stu;       //结构体名不能直接来用
+	p->score = 80;
+	cout<<"name = "<<p->name<<"  ";
+	cout<<"age = "<<p->age<<"  ";
+	cout<<"score = "<<p->score<<"  ";
+}
+ 
+
+```
 
 ``` c++
 
